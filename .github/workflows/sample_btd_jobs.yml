@@ -1,0 +1,33 @@
+name: sampleWorkflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+     - run: echo "Building the package..."
+     - run: echo "Build the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+     - run: echo "build completed successfully"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: echo "Testing the package..."
+      - run: echo "the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      - run: echo "test completed successfully"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - run: echo "Deploying the package..."
+      - run: echo "the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      - run: echo "deploy completed successfully"
+

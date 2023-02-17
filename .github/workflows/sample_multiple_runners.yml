@@ -1,0 +1,31 @@
+# using multiple runners
+
+name: using multiple runners
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  running_on_ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "running on ubuntu..."
+      - run: echo "the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      - run: echo "running on ubuntu completed successfully"
+
+  running_on_windows:
+    runs-on: windows-latest
+    steps:
+      - run: echo "running on windows..."
+      - run: echo "the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      - run: echo "running on windows completed successfully"
+
+  running_on_macos:
+    runs-on: macos-latest
+    steps:
+      - run: echo "running on macos..."
+      - run: echo "the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      - run: echo "running on macos completed successfully"

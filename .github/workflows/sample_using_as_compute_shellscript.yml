@@ -1,0 +1,27 @@
+name: compute_duration_of_job
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  label:
+    types: [labeled]
+  issue_comment:
+    types: [created,updated,deleted]
+  
+
+jobs:
+
+  compute:
+    runs-on: ubuntu-latest  
+    steps:      
+      - run: start_time=$(date -u +'%Y-%m-%dT%H:%M:%SZ') && echo "start_time=$start_time"
+      - run: echo "computing the expression..."
+      - run: echo 2*3/4+5%6
+      - run: echo "compute the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      - run: echo "compute completed successfully"
+      - run: sleep 10 
+      - run: end_time=$(date -u +'%Y-%m-%dT%H:%M:%SZ') && echo "end_time=$end_time" 
+      - run: echo duration=$(($(date -u -d "$end_time" +'%s') - $(date -u -d "$start_time" +'%s'))) && echo "duration=$duration"
+     

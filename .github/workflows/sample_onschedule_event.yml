@@ -1,0 +1,24 @@
+# github workflow to test the trigger on scheduled time
+
+name: trigger_on_scheduled_time
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # run every day at 00:00 UTC
+    - cron: '0 0 * * 0' # run every Sunday at 00:00 UTC
+    - cron: '0 0 * * 1' # run every Monday at 00:00 UTC
+    - cron: '0 0 * * 2' # run every Tuesday at 00:00 UTC
+    - cron: '0 0 * * 3' # run every Wednesday at 00:00 UTC
+    - cron: '0 0 * * 4' # run every Thursday at 00:00 UTC
+    - cron: '0 0 * * 5' # run every Friday at 00:00 UTC
+    - cron: '0 0 * * 6' # run every Saturday at 00:00 UTC
+    
+    - cron: '*/1 * * * *' # run every 5 minutes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      - run: echo "the job was triggered by a ${{ github.event_name }} event and will be run on a ${{ runner.os }} runner in the ${{ github.repository }} repository."
+      
