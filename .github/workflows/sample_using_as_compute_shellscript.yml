@@ -1,4 +1,4 @@
-name: compute_duration_of_job
+name: sample_compute_duration_of_job
 
 on:
   push:
