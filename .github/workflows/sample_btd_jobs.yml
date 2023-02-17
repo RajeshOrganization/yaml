@@ -1,4 +1,4 @@
-name: sampleWorkflow
+name: sample_BTD_Flow
 
 on:
   push:
