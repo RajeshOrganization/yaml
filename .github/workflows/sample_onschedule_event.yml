@@ -4,16 +4,16 @@ name: sample_trigger_on_scheduled_time
 
 on:
   schedule:
-    - cron: '0 0 * * *' # run every day at 00:00 UTC
+#     - cron: '0 0 * * *' # run every day at 00:00 UTC
     - cron: '0 0 * * 0' # run every Sunday at 00:00 UTC
-    - cron: '0 0 * * 1' # run every Monday at 00:00 UTC
-    - cron: '0 0 * * 2' # run every Tuesday at 00:00 UTC
-    - cron: '0 0 * * 3' # run every Wednesday at 00:00 UTC
-    - cron: '0 0 * * 4' # run every Thursday at 00:00 UTC
-    - cron: '0 0 * * 5' # run every Friday at 00:00 UTC
-    - cron: '0 0 * * 6' # run every Saturday at 00:00 UTC
+#     - cron: '0 0 * * 1' # run every Monday at 00:00 UTC
+#     - cron: '0 0 * * 2' # run every Tuesday at 00:00 UTC
+#     - cron: '0 0 * * 3' # run every Wednesday at 00:00 UTC
+#     - cron: '0 0 * * 4' # run every Thursday at 00:00 UTC
+#     - cron: '0 0 * * 5' # run every Friday at 00:00 UTC
+#     - cron: '0 0 * * 6' # run every Saturday at 00:00 UTC
     
-    - cron: '*/1 * * * *' # run every 1 minutes
+#     - cron: '*/1 * * * *' # run every 1 minutes
 
 jobs:
   build:
